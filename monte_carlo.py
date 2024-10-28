@@ -6,8 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 S0 = 100
-K = 100
-r = 0.05
+K = 105
+r = 0.06
 sigma = 0.2
 T = 1
 
@@ -45,9 +45,9 @@ def simulate_paths(S0: float, K: float, T: float, o: float, r: float, num_paths:
     for path in range(num_paths):
         plt.plot(paths[:, path], lw=1)
     plt.plot(mean, color="blue", lw=3, linestyle="--")
-    plt.xlabel("Time Steps")
-    plt.ylabel("Asset Price")
-    plt.title("Simulated Asset Price Paths over Time")
+    plt.xlabel("Time [days]")
+    plt.ylabel("Asset price [$]")
+    plt.title("Asset prices over time")
     plt.grid(True)
     plt.show()
 
@@ -60,5 +60,5 @@ if __name__ == "__main__":
     print(f"Put  price calculated with monte carlo method: {put_price}")
 
     time_steps = 360
-    num_paths = 10
+    num_paths = 100
     paths = simulate_paths(S0, K, T, sigma, r, num_paths, time_steps)
